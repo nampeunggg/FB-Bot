@@ -154,7 +154,7 @@ bot.dialog('askPrice', [
         builder.Prompts.text(session,"Enter Product Name: ");
     },
     function (session,results){       
-        executeAsk("SELECT DISTINCT Name, Price FROM Products WHERE Name LIKE '%"+(results.response).toLowerCase()+"%'", function(err,dataset,rows) {
+        executeAsk("SELECT DISTINCT Name, Price FROM Products WHERE Name LIKE '%"+(results.response).toLowerCase()+"%' Order By Name, Color;", function(err,dataset,rows) {
             if(err || rows <= 0) {
                 session.send("Sorry, Product not found.");
             }
