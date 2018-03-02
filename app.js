@@ -526,7 +526,7 @@ bot.dialog('/FAQ', [
     },
     function (session, results) {
         if (results.response.match(/.*payment.*/g) || results.response.match(/.*Payment.*/g)) {
-            session.send("Payment Methods\n\n1. ATM Bank\n\n2. Internet Banking\n\n3. VISA Card");
+            session.send("Payment Methods\n\n1. ATM Bank\n2. Internet Banking\n3. VISA Card");
         }
         else if (results.response.match(/.*size.*/g) || results.response.match(/.*Size.*/g)) {
             var pic = new builder.Message(session)
@@ -538,13 +538,13 @@ bot.dialog('/FAQ', [
         }
         else if (results.response.match(/.*return.*/g) || results.response.match(/.*return.*/g)
         || results.response.match(/.*refund.*/g) || results.response.match(/.*refund.*/g)) {
-            session.send("Returns & Refund\n\n Please send an email to npshop@chatbot.com\n\n1. Picture of Products\n\n2. Reason\n\n3. Order ID");
+            session.send("Returns & Refund\n\n Please send an email to npshop@chatbot.com\n\n1. Picture of Products\n2. Reason\n3. Order ID");
         }
         else if (results.response.match(/.*order.*/g) || results.response.match(/.*order.*/g)) {
-            session.send("Product Order\n\nPlease send an email to npshop@chatbot.com\n\n1. Product's ID\n\n2. Quantity\n\n3. Name, Address and Mobile Phone");
+            session.send("Product Order\n\nPlease send an email to npshop@chatbot.com\n\n1. Product's ID\n2. Quantity\n3. Name, Address and Mobile Phone");
         }
         else if (results.response.match(/.*ship.*/g) || results.response.match(/.*Ship.*/g)) {
-            session.send("Shipment\n1. Thaipost\n2. Kerry");
+            session.send("Shipment\n\n1. Thaipost\n2. Kerry");
         }
         else{
             session.send("Wait for the owner...")
