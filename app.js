@@ -553,7 +553,7 @@ bot.dialog('/FAQ', [
             session.send("Shipment\n\n1. Thaipost\n2. Kerry");
             ans = true;
         }
-        if (ans = false){ 
+        if (ans == false){ 
             session.send("Wait for the owner...")
         }
         session.beginDialog('FAQAgain');
