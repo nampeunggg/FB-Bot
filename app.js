@@ -154,18 +154,12 @@ bot.dialog('askPrice', [
         builder.Prompts.text(session,"Enter Product Name: ");
     },
     function (session,results){       
-        executeAsk("SELECT DISTINCT Name, Picture, Price FROM Products WHERE Name LIKE '%"+(results.response).toLowerCase()+"%'", function(err,dataset,rows) {
+        executeAsk("SELECT DISTINCT Name, Price FROM Products WHERE Name LIKE '%"+(results.response).toLowerCase()+"%'", function(err,dataset,rows) {
             if(err || rows <= 0) {
                 session.send("Sorry, Product not found.");
             }
             else {
             dataset.forEach(function(data){
-                var sendpic = new builder.Message(session)
-                .attachments([{
-                contentType: "image/jpeg",
-                contentUrl: data.Picture
-            }]);
-            session.send(sendpic);
             session.send("Name: %s\n\nPrice: %d Baht" , data.Name.capitalize(), data.Price);
             })
             if(rows==1){
