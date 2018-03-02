@@ -525,10 +525,11 @@ bot.dialog('/FAQ', [
         builder.Prompts.text(session,"What do you want to know?")
     },
     function (session, results) {
-        if (results.response.match(/.*payment.*/g) || results.response.match(/.*Payment.*/g)) {
+        if (results.response.match(/.*payment.*/g) || results.response.match(/.*Payment.*/g)
+        || results.response.match(/.*pay.*/g) || results.response.match(/.*Pay.*/g)) {
             session.send("Payment Methods\n\n1. ATM Bank\n2. Internet Banking\n3. VISA Card");
         }
-        else if (results.response.match(/.*size.*/g) || results.response.match(/.*Size.*/g)) {
+        if (results.response.match(/.*size.*/g) || results.response.match(/.*Size.*/g)) {
             var pic = new builder.Message(session)
                     .attachments([{
                     contentType: "image/jpeg",
