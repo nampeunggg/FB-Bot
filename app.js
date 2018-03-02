@@ -525,9 +525,11 @@ bot.dialog('/FAQ', [
         builder.Prompts.text(session,"What do you want to know?")
     },
     function (session, results) {
+        var ans = false;
         if (results.response.match(/.*payment.*/g) || results.response.match(/.*Payment.*/g)
         || results.response.match(/.*pay.*/g) || results.response.match(/.*Pay.*/g)) {
             session.send("Payment Methods\n\n1. ATM Bank\n2. Internet Banking\n3. VISA Card");
+            ans = true;
         }
         if (results.response.match(/.*size.*/g) || results.response.match(/.*Size.*/g)) {
             var pic = new builder.Message(session)
@@ -536,18 +538,22 @@ bot.dialog('/FAQ', [
                     contentUrl: "https://image.ibb.co/cnNsan/size.jpg"
                 }]);
             session.send(pic);
+            ans = true;
         }
         if (results.response.match(/.*return.*/g) || results.response.match(/.*return.*/g)
         || results.response.match(/.*refund.*/g) || results.response.match(/.*refund.*/g)) {
             session.send("Returns & Refund\n\n Please send an email to npshop@chatbot.com\n\n1. Picture of Products\n2. Reason\n3. Order ID");
+            ans = true;
         }
         if (results.response.match(/.*order.*/g) || results.response.match(/.*order.*/g)) {
             session.send("Product Order\n\nPlease send an email to npshop@chatbot.com\n\n1. Product's ID\n2. Quantity\n3. Name, Address and Mobile Phone");
+            ans = true;
         }
         if (results.response.match(/.*ship.*/g) || results.response.match(/.*Ship.*/g)) {
             session.send("Shipment\n\n1. Thaipost\n2. Kerry");
+            ans = true;
         }
-        else{
+        if (ans = false){ 
             session.send("Wait for the owner...")
         }
         session.beginDialog('FAQAgain');
