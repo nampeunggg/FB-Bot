@@ -526,12 +526,11 @@ bot.dialog('/FAQ', [
     },
     function (session, results) {
         var ans = false;
-        if (results.response.match(/.*payment.*/g) || results.response.match(/.*Payment.*/g)
-        || results.response.match(/.*pay.*/g) || results.response.match(/.*Pay.*/g)) {
+        if (results.response.match(/.*payment.*/i) || results.response.match(/.*pay.*/i)) {
             session.send("Payment Methods\n\n1. ATM Bank\n2. Internet Banking\n3. VISA Card");
             ans = true;
         }
-        if (results.response.match(/.*size.*/g) || results.response.match(/.*Size.*/g)) {
+        if (results.response.match(/.*size.*/i)) {
             var pic = new builder.Message(session)
                     .attachments([{
                     contentType: "image/jpeg",
@@ -540,16 +539,15 @@ bot.dialog('/FAQ', [
             session.send(pic);
             ans = true;
         }
-        if (results.response.match(/.*return.*/g) || results.response.match(/.*return.*/g)
-        || results.response.match(/.*refund.*/g) || results.response.match(/.*refund.*/g)) {
+        if (results.response.match(/.*return.*/i) || results.response.match(/.*refund.*/i)) {
             session.send("Returns & Refund\n\n Please send an email to npshop@chatbot.com\n\n1. Picture of Products\n2. Reason\n3. Order ID");
             ans = true;
         }
-        if (results.response.match(/.*order.*/g) || results.response.match(/.*order.*/g)) {
+        if (results.response.match(/.*order.*/i)) {
             session.send("Product Order\n\nPlease send an email to npshop@chatbot.com\n\n1. Product's ID\n2. Quantity\n3. Name, Address and Mobile Phone");
             ans = true;
         }
-        if (results.response.match(/.*ship.*/g) || results.response.match(/.*Ship.*/g)) {
+        if (results.response.match(/.*ship.*/i) || results.response.match(/.*shipment.*/i)) {
             session.send("Shipment\n\n1. Thaipost\n2. Kerry");
             ans = true;
         }
