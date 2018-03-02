@@ -536,14 +536,14 @@ bot.dialog('/FAQ', [
                 }]);
             session.send(pic);
         }
-        else if (results.response.match(/.*return.*/g) || results.response.match(/.*return.*/g)
+        if (results.response.match(/.*return.*/g) || results.response.match(/.*return.*/g)
         || results.response.match(/.*refund.*/g) || results.response.match(/.*refund.*/g)) {
             session.send("Returns & Refund\n\n Please send an email to npshop@chatbot.com\n\n1. Picture of Products\n2. Reason\n3. Order ID");
         }
-        else if (results.response.match(/.*order.*/g) || results.response.match(/.*order.*/g)) {
+        if (results.response.match(/.*order.*/g) || results.response.match(/.*order.*/g)) {
             session.send("Product Order\n\nPlease send an email to npshop@chatbot.com\n\n1. Product's ID\n2. Quantity\n3. Name, Address and Mobile Phone");
         }
-        else if (results.response.match(/.*ship.*/g) || results.response.match(/.*Ship.*/g)) {
+        if (results.response.match(/.*ship.*/g) || results.response.match(/.*Ship.*/g)) {
             session.send("Shipment\n\n1. Thaipost\n2. Kerry");
         }
         else{
