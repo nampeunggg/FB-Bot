@@ -544,7 +544,7 @@ bot.dialog('/FAQ', [
             session.send("Product Order\n\nPlease send an email to npshop@chatbot.com\n\n1. Product's ID\n\n2. Quantity\n\n3. Name, Address and Mobile Phone");
         }
         else if (results.response.match(/.*ship.*/g) || results.response.match(/.*Ship.*/g)) {
-            session.send("Shipment\n\n1. Thaipost\n\n2. Kerry");
+            session.send("Shipment\n1. Thaipost\n2. Kerry");
         }
         else{
             session.send("Wait for the owner...")
