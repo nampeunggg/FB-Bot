@@ -560,7 +560,7 @@ bot.dialog('/FAQ', [
 
 bot.dialog('FAQAgain', [
     function(session) {
-        builder.Prompts.confirm(session, "Do you other questions?");
+        builder.Prompts.confirm(session, "Do you have other questions?");
     },
     function (session, results) {
         if (results.response) {
